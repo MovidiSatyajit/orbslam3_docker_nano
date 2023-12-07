@@ -41,6 +41,9 @@ docker run -td --privileged --net=host --ipc=host \
     -v `pwd`/ORB_SLAM3:/ORB_SLAM3 \
     movidisatyajit/orbslam3_docker_nano:latest bash
     
+# Set python priority to python3.8
+docker exec -it orbslam3 bash -i -c "update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1 && update-alternatives --install /usr/bin/python python /usr/bin/python3.8 2"
+
 # Git pull orbslam and compile
 docker exec -it orbslam3 bash -i -c "git clone https://github.com/yogi-52/ORB_SLAM3.git /ORB_SLAM3 && cd /ORB_SLAM3 && chmod +x build.sh && ./build.sh "
 # Compile ORBSLAM3-ROS
