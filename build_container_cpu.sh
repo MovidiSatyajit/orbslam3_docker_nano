@@ -42,7 +42,7 @@ docker run -td --privileged --net=host --ipc=host \
     movidisatyajit/orbslam3_docker_nano:latest bash
     
 # Git pull orbslam and compile
-docker exec -it orbslam3 bash -i -c "git clone -b add_euroc_example.sh https://github.com/yogi-52/ORB_SLAM3.git /ORB_SLAM3 && cd /ORB_SLAM3 && chmod +x build.sh && ./build.sh "
+docker exec -it orbslam3 bash -i -c "git clone https://github.com/yogi-52/ORB_SLAM3.git /ORB_SLAM3 && cd /ORB_SLAM3 && chmod +x build.sh && ./build.sh "
 # Compile ORBSLAM3-ROS
 docker exec -it orbslam3 bash -i -c "echo 'ROS_PACKAGE_PATH=/opt/ros/noetic/share:/ORB_SLAM3/Examples/ROS'>>~/.bashrc && source ~/.bashrc && cd /ORB_SLAM3 && chmod +x build_ros.sh && ./build_ros.sh"
 
